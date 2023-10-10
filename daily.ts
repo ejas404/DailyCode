@@ -30,4 +30,18 @@ function mergeArray(arr1 : number[],arr2 : number[]) : number[] {
 
 let x : number[] = mergeArray([1,2,3],[6,7,8,9,10])
 console.log(x)
+
+
+function sumTwoNumbers() : number | null {
+    let result : string | null = prompt('enter two numbers between space')
+
+    if(typeof(result) === 'string'){
+       let numArr =  result.split(' ')
+        let sum : number = Number(numArr[0]) + Number(numArr[1])
+        return sum
+    }
+    return null
+}
+
+
 export {}
