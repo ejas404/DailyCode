@@ -43,5 +43,17 @@ function sumTwoNumbers() : number | null {
     return null
 }
 
+function passMark(mark : number) : string{
+    if(mark >= 50 && mark <= 100){
+        return "passed"
+    }else{
+        return "failed"
+    }
+}
+
+
+passMark(50)
+
+
 
 export {}
