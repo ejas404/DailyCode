@@ -71,5 +71,13 @@ function specialArray(nums: number[]): number {
     return -1
  };
 
+ function speciaArray(nums: number[]): number {
+    for(let i = 0; i<=nums.length;i++){
+        if(nums.filter((val)=> val >= i).length === i){
+            return i
+        }
+    }
+    return -1
+ };
 
 export {}
