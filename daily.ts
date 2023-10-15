@@ -80,4 +80,43 @@ function specialArray(nums: number[]): number {
     return -1
  };
 
-export {}
+
+
+function maxLengthBetweenEqualCharacters(s: string): number {
+    let n = s.length-1
+    for(let i=0 ; i<=n ;i++){
+        console.log(s[i], s[n-i])
+        console.log(i,n-i)
+        if(s[i] === s[n-i]){
+            if(i >= n-i){
+                return -1
+            }
+             let arr = s.split('')
+             console.log(i+1, -(i+1))
+             return arr.slice(i+1,-(i+1)).length
+        }
+    }
+    return -1
+};
+
+// binary search only possible in sorted Array
+function binarySearch(arr : number[],k : number){
+    let mid = Math.floor(arr.length-1/2)
+    let n = arr.length
+    for(let i = 0; i< n;i++){
+        if(k < arr[mid]){
+            n = mid-1
+        }else if(k > arr[mid]){
+            i = mid+1
+        }else{
+            return `value in ${mid} th position`
+        }
+
+    }
+    return `not such value is here`
+}
+
+let arr = [1,2,3,4,5,6,7,8,9,10]
+console.log(binarySearch(arr,5))
+
+export{}
