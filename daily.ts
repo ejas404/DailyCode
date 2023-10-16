@@ -28,8 +28,8 @@ function mergeArray(arr1 : number[],arr2 : number[]) : number[] {
     
 }
 
-let x : number[] = mergeArray([1,2,3],[6,7,8,9,10])
-console.log(x)
+//let x : number[] = mergeArray([1,2,3],[6,7,8,9,10])
+//console.log(x)
 
 
 function sumTwoNumbers() : number | null {
@@ -52,7 +52,7 @@ function passMark(mark : number) : string{
 }
 
 
-passMark(50)
+//passMark(50)
 
 
 function specialArray(nums: number[]): number {
@@ -116,7 +116,30 @@ function binarySearch(arr : number[],k : number){
     return `not such value is here`
 }
 
+//let arr = [1,2,3,4,5,6,7,8,9,10]
+//console.log(binarySearch(arr,5))
+
+// binary search can only be worked of sorted array
+
+function binarySearchRecursive(arr : number[],k: number){
+    function search(start : number, end : number){
+        let mid = Math.floor((start+end)/2)
+        if(start >= end ){
+            return 'no such value'
+        } 
+
+        if(k > arr[mid]){
+            return search(mid+1,end)
+        }else if(k < arr[mid]){
+            return search(start,mid-1)
+        }else{
+            return `value is in ${mid}th position`
+        }
+    }
+    return search(0,arr.length-1)
+}
+
 let arr = [1,2,3,4,5,6,7,8,9,10]
-console.log(binarySearch(arr,5))
+console.log(binarySearchRecursive(arr,11))
 
 export{}
