@@ -153,7 +153,44 @@ class Some {
     }
 }
 
-let something = new Some()
-something.display() 
+//let something = new Some()
+//something.display() 
+
+class MaxHeap {
+    value : number [] 
+    constructor(){
+        this.value = []
+    }
+
+    insert (val : number){
+        if(!this.value.length){
+            this.value.push(val)
+            return true
+        }
+
+        this.value.push(val)
+        let index = this.value.length-1
+
+        let heapUp = (index : number)=>{
+            let parentIndex : number = Math.floor((index-1)/2)
+            if(this.value[index] > this.value[parentIndex]){
+                [this.value[index],this.value[parentIndex]] = [this.value[parentIndex],this.value[index]]
+                heapUp(parentIndex)
+            }else{
+                return
+            }
+        }
+
+        heapUp(index)
+    }
+}
+
+let s = new MaxHeap()
+s.insert(1)
+s.insert(2)
+s.insert(5)
+s.insert(3)
+s.insert(10)
+console.log(s)
 
 export{}
