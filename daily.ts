@@ -139,7 +139,21 @@ function binarySearchRecursive(arr : number[],k: number){
     return search(0,arr.length-1)
 }
 
-let arr = [1,2,3,4,5,6,7,8,9,10]
-console.log(binarySearchRecursive(arr,11))
+//let arr = [1,2,3,4,5,6,7,8,9,10]
+//console.log(binarySearchRecursive(arr,11))
+
+function log(target : any , key : any){
+    console.log('this is from log')
+}
+
+class Some {
+    @log
+    display(){
+        console.log('jus to display')
+    }
+}
+
+let something = new Some()
+something.display() 
 
 export{}
