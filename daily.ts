@@ -146,12 +146,12 @@ function log(target : any , key : any){
     console.log('this is from log')
 }
 
-class Some {
-    @log
-    display(){
-        console.log('jus to display')
-    }
-}
+// class Some {
+//     @log
+//     display(){
+//         console.log('jus to display')
+//     }
+// }
 
 //let something = new Some()
 //something.display() 
@@ -185,12 +185,32 @@ class MaxHeap {
     }
 }
 
-let s = new MaxHeap()
-s.insert(1)
-s.insert(2)
-s.insert(5)
-s.insert(3)
-s.insert(10)
-console.log(s)
+// let s = new MaxHeap()
+// s.insert(1)
+// s.insert(2)
+// s.insert(5)
+// s.insert(3)
+// s.insert(10)
+// console.log(s)
+
+// check if a substring is in the string
+function stringCheck(string : string , s:string):boolean {
+    let i=0,j=0;
+    while(i < string.length ){
+        if(string[i] === s[j]){
+            j++
+        }else{
+            j = 0
+        }
+        i++
+
+        if(j >= s.length){
+            return true
+        }
+    }
+    return false
+}
+
+console.log(stringCheck('thisissomething','ism'))
 
 export{}
