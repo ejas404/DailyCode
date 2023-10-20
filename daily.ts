@@ -211,6 +211,28 @@ function stringCheck(string : string , s:string):boolean {
     return false
 }
 
-console.log(stringCheck('thisissomething','ism'))
+//console.log(stringCheck('thisissomething','ism'))
+
+function stringCount(string : string , s:string) : number{
+    let i =0,j = 0, count = 0;
+
+    while(i < string.length){
+        if(string[i] === s[j]){
+            j++
+        }else{
+            j = 0
+        }
+
+        if(j >= s.length){
+            count++
+            j =0
+        }
+        i++
+    }
+
+    return count
+}
+
+console.log(stringCount('mysdfdsfdmysdsdsfdmy','my'))
 
 export{}
