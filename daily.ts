@@ -233,6 +233,24 @@ function stringCount(string : string , s:string) : number{
     return count
 }
 
-console.log(stringCount('mysdfdsfdmysdsdsfdmy','my'))
+//console.log(stringCount('mysdfdsfdmysdsdsfdmy','my'))
+
+function logging(target,name){
+    console.log(target)
+    console.log(name)
+    
+}
+
+class Some {
+
+    @logging
+    some(some){
+        console.log(some)
+    }
+    
+}
+
+let s = new Some()
+s.some('hai')
 
 export{}
