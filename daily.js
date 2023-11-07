@@ -64,8 +64,8 @@ function sumTwoNumbers() {
     var result = prompt('enter two numbers between space');
     if (typeof (result) === 'string') {
         var numArr = result.split(' ');
-        var sum_1 = Number(numArr[0]) + Number(numArr[1]);
-        return sum_1;
+        var sum = Number(numArr[0]) + Number(numArr[1]);
+        return sum;
     }
     return null;
 }
@@ -303,10 +303,20 @@ function uppercase(target, name, descriptor) {
 // const message = example.saySomething("This is a message.");
 // console.log(greeting); // Output: "HELLO, JOHN!"
 // console.log(message);  // Output: "THIS IS A MESSAGE."
-var n = 1234;
-var sum = 0;
-while (n > 0) {
-    sum += n % 10;
-    n = Math.floor(n / 10);
+// let n = 42
+// let k = 2
+// let rem = n % k
+//  console.log((n-rem)/k)
+var n = 4;
+for (var i = 0; i <= 2 * n; i++) {
+    var s = "";
+    var k = i > n ? (2 * n) - i : i;
+    //loop for space
+    for (var m = 0; m < k; m++) {
+        s += " ";
+    }
+    for (var j = 0; j < (n - k) + 1; j++) {
+        s += " *";
+    }
+    console.log(s);
 }
-console.log(sum);

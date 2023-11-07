@@ -285,16 +285,28 @@ function uppercase(target, name, descriptor) {
 // console.log(greeting); // Output: "HELLO, JOHN!"
 // console.log(message);  // Output: "THIS IS A MESSAGE."
 
-let n = 1234
-let sum = 0
+// let n = 42
+// let k = 2
 
-while(n > 0){
-    sum+= n%10
+// let rem = n % k
+//  console.log((n-rem)/k)
 
-    n = Math.floor(n/10)
+
+ let n  = 4
+
+for(let i = 0 ; i<=2*n ; i++){
+    let s = ""
+    let k = i > n ?(2*n) - i: i ;
+
+    //loop for space
+    for(let m= 0 ; m < k; m++ ){
+        s+= " "
+    }
+    
+    for(let j = 0 ; j< (n-k)+1 ; j++){
+        s+= " *"
+    }
+    console.log(s)
 }
-
-console.log(sum)
-
 
 export { }
