@@ -115,4 +115,40 @@ class BinarySearchTree {
 
         return res
     }
+
+    postOrder(root = this.root){
+        let stack : TreeNode[] = [root] as TreeNode[]
+        let res : number[] = []
+
+        while(stack.length){
+            let current = stack.pop() as TreeNode
+            res.unshift(current?.val)
+
+            if(current.left){
+                stack.push(current.left)
+            }
+
+            if(current.right){
+                stack.push(current.right)
+            }
+        }
+
+        return res
+    }
+
+    preorderRecursive(root = this.root){
+        let res : number[] = []
+        function traverse(root : TreeNode){
+            if(root){
+
+                res.push(root.val)
+                if(root.left) traverse(root.left)
+                if(root.right)traverse(root.right)
+            }
+        }
+
+        traverse(root as TreeNode)
+
+        return res
+    }
 }
