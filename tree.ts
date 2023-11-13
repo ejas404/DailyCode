@@ -106,6 +106,13 @@ class BinarySearchTree {
                 stack.push(current)
                 current = current.left
             }
+
+            current = stack.pop() as TreeNode
+            res.push(current.val)
+            current = current.right
+
         }
+
+        return res
     }
 }
