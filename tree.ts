@@ -47,9 +47,9 @@ class BinarySearchTree {
     insertRec(val: number) {
         let newNode = new TreeNode(val)
 
-        if (!this.root){
+        if (!this.root) {
             this.root = newNode
-        }else{
+        } else {
             let insertVal = (newNode, root: TreeNode) => {
                 if (!root) {
                     root = newNode
@@ -57,17 +57,55 @@ class BinarySearchTree {
                 }
 
                 if (val < root.val) {
-                    root.left = insertVal(newNode,root.left)
+                    root.left = insertVal(newNode, root.left)
                 } else if (val > root.val) {
-                   root.right = insertVal(newNode,root.right)
+                    root.right = insertVal(newNode, root.right)
                 }
                 return root
             }
 
-           this.root = insertVal(newNode ,this.root)
+            this.root = insertVal(newNode, this.root)
         }
-           
 
-        
+
+
+    }
+
+
+    preOrder(root = this.root) {
+        if (!root) return undefined
+        else {
+            let stack: TreeNode[] = [root]
+            let orderArr: number[] = []
+
+            while(stack.length){
+                let current = stack.pop() as TreeNode
+                orderArr.push(current?.val)
+
+                if(current.right){
+                    stack.push(current.right)
+                }
+                if(current.left){
+                    stack.push(current.left)
+                }
+            }
+
+            return orderArr
+        }
+
+    }
+
+    inOrder(root = this.root){
+        let stack :TreeNode[] = []
+        let res : number[] = []
+        let current = root
+
+        while(stack.length || current){
+            
+            while(current){
+                stack.push(current)
+                current = current.left
+            }
+        }
     }
 }

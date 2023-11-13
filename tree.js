@@ -63,8 +63,29 @@ var BinarySearchTree = /** @class */ (function () {
             this.root = insertVal_1(newNode, this.root);
         }
     };
+    BinarySearchTree.prototype.preOrder = function (root) {
+        if (root === void 0) { root = this.root; }
+        if (!root)
+            return undefined;
+        else {
+            var stack = [root];
+            var orderArr = [];
+            while (stack.length) {
+                var current = stack.pop();
+                orderArr.push(current === null || current === void 0 ? void 0 : current.val);
+                if (current.right) {
+                    stack.push(current.right);
+                }
+                if (current.left) {
+                    stack.push(current.left);
+                }
+            }
+            return orderArr;
+        }
+    };
     return BinarySearchTree;
 }());
+
 
 let bst = new BinarySearchTree()
 
@@ -74,3 +95,4 @@ bst.insertRec(6)
 bst.insertRec(10)
 bst.insertRec(2)
 console.log(bst)
+console.log(bst.preOrder())
