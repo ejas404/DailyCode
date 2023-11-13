@@ -22,3 +22,5 @@ function binarySearch(arr : number[] , val : number) : string {
 
     return 'there is no such value existing'
 }
+
+
