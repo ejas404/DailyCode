@@ -42,6 +42,24 @@ class SinglyLinkedList{
 
         return popped
     }
+
+    reverse(){
+        let current = this.head
+        let prev : LiNode | null  = null
+        let next : LiNode | null  ;
+
+        while(current){
+            next = current?.next
+            current.next = prev
+            prev = current
+            current = next          
+        }
+
+        [this.head , this.tail] = [this.tail , this.head]
+
+        return this
+
+    }
 }
 
 
