@@ -151,4 +151,24 @@ class BinarySearchTree {
 
         return res
     }
+
+    bfs(root = this.root){
+        let queue : TreeNode[] = [root] as TreeNode[]
+        let res  : number[] = []
+
+
+        while(queue.length){
+            let current = queue.shift() as TreeNode
+            res.push(current?.val)
+
+            if(current.left){
+                queue.push(current.left)
+            }
+            if(current.right){
+                queue.push(current.right)
+            }
+        }
+
+        return res
+    }
 }

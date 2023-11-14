@@ -83,9 +83,71 @@ var BinarySearchTree = /** @class */ (function () {
             return orderArr;
         }
     };
+    BinarySearchTree.prototype.inOrder = function (root) {
+        if (root === void 0) { root = this.root; }
+        var stack = [];
+        var res = [];
+        var current = root;
+        while (stack.length || current) {
+            while (current) {
+                stack.push(current);
+                current = current.left;
+            }
+            current = stack.pop();
+            res.push(current.val);
+            current = current.right;
+        }
+        return res;
+    };
+    BinarySearchTree.prototype.postOrder = function (root) {
+        if (root === void 0) { root = this.root; }
+        var stack = [root];
+        var res = [];
+        while (stack.length) {
+            var current = stack.pop();
+            res.unshift(current === null || current === void 0 ? void 0 : current.val);
+            if (current.left) {
+                stack.push(current.left);
+            }
+            if (current.right) {
+                stack.push(current.right);
+            }
+        }
+        return res;
+    };
+    BinarySearchTree.prototype.preorderRecursive = function (root) {
+        if (root === void 0) { root = this.root; }
+        var res = [];
+        function traverse(root) {
+            if (root) {
+                res.push(root.val);
+                if (root.left)
+                    traverse(root.left);
+                if (root.right)
+                    traverse(root.right);
+            }
+        }
+        traverse(root);
+        return res;
+    };
+    BinarySearchTree.prototype.bfs = function (root) {
+        if (root === void 0) { root = this.root; }
+        var queue = [root];
+        var res = [];
+        while (queue.length) {
+            var current = queue.shift();
+            res.push(current === null || current === void 0 ? void 0 : current.val);
+            if (current.left) {
+                queue.push(current.left);
+            }
+            if (current.right) {
+                queue.push(current.right);
+            }
+        }
+        return res;
+    };
     return BinarySearchTree;
 }());
-
 
 let bst = new BinarySearchTree()
 
@@ -95,4 +157,4 @@ bst.insertRec(6)
 bst.insertRec(10)
 bst.insertRec(2)
 console.log(bst)
-console.log(bst.preOrder())
+console.log(bst.bfs())
