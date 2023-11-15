@@ -35,15 +35,24 @@ var SinglyLinkedList = /** @class */ (function () {
         this.tail = current;
         return popped;
     };
+    SinglyLinkedList.prototype.reverse = function () {
+        var current = this.head;
+        var prev = null;
+        var next;
+        while (current) {
+            next = current === null || current === void 0 ? void 0 : current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return this;
+    };
     return SinglyLinkedList;
 }());
-
 
 let sll = new SinglyLinkedList()
 sll.push(5)
 sll.push(6)
 sll.push(7)
 
-console.log(sll)
-console.log(sll.pop())
-console.log(sll)
+console.log(sll.reverse())
