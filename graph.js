@@ -1,31 +1,87 @@
 let graphAdjacency = {
-    'a':['b','c'],
-    'b':['a','d','e'],
-    'c':['a','d','f'],
-    'd': ['b','c'],
+    'a':[
+      {node : 'b', edge : 4},
+      {node :'c', edge : 5}
+     ],
+    'b':[
+      {node : 'a', edge : 4},
+      {node : 'd', edge : 3},
+      {node : 'e', edge : 1}
+    ],
+    'c':[
+      {node : 'a', edge : 5},
+      {node : 'd', edge : 8},
+      {node : 'f', edge : 6}
+    ],
+    'd':[
+      {node : 'b', edge : 3},
+      {node : 'c', edge : 8}
+    ],
     'f':[],
     'e':[]
 
 }
 
+function bfs(startVertex) {
+  const queue = [startVertex];
+  const result = [];
+  const visited = {};
 
-function dfs(){
-  let check = new Set()
-  let stack = []  
+  visited[startVertex] = true;
 
-  function traverse(node){
-        if(check.has(node)) return;
-        check.add(node)
-        for(let vrtx of graphAdjacency[node]){
-            traverse(vrtx)
-        }
+  while (queue.length) {
+    const currentVertex = queue.shift();
+    result.push(currentVertex);
+
+    graphAdjacency[currentVertex].forEach((neighbor) => {
+      if (!visited[neighbor]) {
+        visited[neighbor] = true;
+        queue.push(neighbor);
+      }
+    });
   }
 
-  traverse('e')
-  return [...check]
+  return result;
 }
 
-console.log(dfs())
+console.log(bfs('b'))
+
+// function bfs(){
+//   let queue = ['a']
+//   let checked = new Set()
+
+//   while(queue.length > 0){
+//     let vrtx = queue.shift()
+//     checked.add(vrtx)
+
+//     for(let each of graphAdjacency[vrtx]){
+//         if(checked.has(each)) continue;
+//         queue.push()
+
+//     }
+
+//   }
+  
+// }
+
+
+// function dfs(){
+//   let check = new Set()
+//   let stack = []  
+
+//   function traverse(node){
+//         if(check.has(node)) return;
+//         check.add(node)
+//         for(let vrtx of graphAdjacency[node]){
+//             traverse(vrtx)
+//         }
+//   }
+
+//   traverse('e')
+//   return [...check]
+// }
+
+// console.log(dfs())
 
 
 // function graphDfs(graphAdjacency){
