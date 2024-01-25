@@ -146,6 +146,23 @@ var BinarySearchTree = /** @class */ (function () {
         }
         return res;
     };
+    BinarySearchTree.prototype.validate = function (root) {
+        if (root === void 0) { root = this.root; }
+        var prev = -Infinity;
+        function traverse(root) {
+            if (root) {
+                traverse(root.left);
+                if (prev >= root.val) {
+                    return false;
+                }
+                prev = root.val;
+                console.log(root.val);
+                traverse(root.right);
+            }
+            return true
+        }
+        return traverse(root);
+    };
     return BinarySearchTree;
 }());
 
@@ -156,5 +173,7 @@ bst.insertRec(3)
 bst.insertRec(6)
 bst.insertRec(10)
 bst.insertRec(2)
-console.log(bst)
-console.log(bst.bfs())
+console.log(bst.validate())
+console.log(bst.root.left.val = 20)
+console.log(bst.validate())
+//console.log(bst.bfs())

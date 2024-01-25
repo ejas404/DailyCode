@@ -22,6 +22,22 @@ let graphAdjacency = {
 
 }
 
+function shortestPath(vrtx){
+    let que = [vrtx]
+    let check = {}
+
+    while(que.length){
+      let current = que.shift()
+
+      for(let each in graphAdjacency[current]){
+        if(!check[each.node]){
+          check[each.node] = each.edge
+        }
+      }
+    }
+
+}
+
 function bfs(startVertex) {
   const queue = [startVertex];
   const result = [];
@@ -44,7 +60,7 @@ function bfs(startVertex) {
   return result;
 }
 
-console.log(bfs('b'))
+//console.log(bfs('b'))
 
 // function bfs(){
 //   let queue = ['a']

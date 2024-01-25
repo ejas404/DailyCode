@@ -171,4 +171,24 @@ class BinarySearchTree {
 
         return res
     }
+
+
+    validate(root = this.root){
+        let prev = -Infinity
+
+        function traverse(root){
+            if(root){
+                traverse(root.left)
+                if(prev >= root.val){
+                    return false
+                }
+                prev = root.val
+                console.log(root.val)
+                traverse(root.right)
+            }
+        }
+
+      return traverse(root)
+        
+    }
 }
